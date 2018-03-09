@@ -1,7 +1,7 @@
 # CSharp.Pipe
 This lib is made to bring piping to c#.
 It dos not add any functionality but it makes the code more readable. Its just syntactic sugar!
-
+## Use
 lets say you have these functions :
 ```cs
     private int _val = 6;
@@ -26,3 +26,11 @@ but with the piping it looks like
         .Pipe(Save(id));
 ```
 More examples in the tests
+
+## Install
+```
+Install-Package CSharp.Pipe 
+```
+```
+dotnet add package CSharp.Pipe
+```
