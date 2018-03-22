@@ -11,6 +11,9 @@ lets say you have these functions :
 
     private Action<int> Save(int id ) => val => _val = val;
 ```
+and if you want to:
+> GetById 'id' and add 2 and save the new value for id 
+
 normally if would lock like 
 ```cs
     const int id = 2;
@@ -25,7 +28,7 @@ but with the piping it looks like
         .Pipe(Add(2))
         .Pipe(Save(id));
 ```
-More examples in the tests
+With the pipe it reads more natural. More examples are in the tests
 
 ## Install
 ```
