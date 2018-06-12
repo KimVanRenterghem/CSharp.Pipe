@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard1.6;netstandard1.5;netstandard1.4</TargetFrameworks>
+    <TargetFramework>netstandard1.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Authors>Kim Van Renterghem</Authors>
@@ -11,11 +11,8 @@
     <PackageProjectUrl>https://github.com/KimVanRenterghem/CSharp.Pipe</PackageProjectUrl>
     <RepositoryUrl>https://github.com/KimVanRenterghem/CSharp.Pipe</RepositoryUrl>
     <PackageTags>c# pipe</PackageTags>
-    <PackageReleaseNotes>multiple targetFraimWork 2.0 - 1.4</PackageReleaseNotes>
-    <Version>1.0.1</Version>
+    <PackageReleaseNotes>netstandaard 1.0 and build fix</PackageReleaseNotes>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
-  </PropertyGroup>
 </Project>
