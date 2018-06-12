@@ -1,22 +1,22 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
+using Xunit;
 
 namespace CSharp.Pipe.Test
 {
-    [TestClass]
     public class Pipe_Func_Test
     {
-        [TestMethod]
+        [Fact]
         public void Pipe_Number_To_Func()
         {
             Func<int, int> Add(int een) => twee => een + twee;
 
             var res = 2.Pipe(Add(3));
 
-            Assert.AreEqual(2+3,res);
+            res.Should().Be(5);
         }
 
-        [TestMethod]
+        [Fact]
         public void Pipe_Number_To_FuncAsData()
         {
             Func<int, int> Add(int een) => twee => een + twee;
@@ -24,10 +24,10 @@ namespace CSharp.Pipe.Test
             var Add2 = Add(2);
             var res = 2.Pipe(Add2);
 
-            Assert.AreEqual(4, res);
+            res.Should().Be(4);
         }
 
-        [TestMethod]
+        [Fact]
         public void Pipe_FuncAsData_To_FuncAsData()
         {
             Func<int, int> Add(int een) => twee => een + twee;
@@ -38,11 +38,10 @@ namespace CSharp.Pipe.Test
 
             var res = add3.Pipe(Add2);
 
-            Assert.AreEqual(3+2, res);
+            res.Should().Be(5);
         }
 
-
-        [TestMethod]
+        [Fact]
         public void Fluend_Pipe()
         {
             Func<int, int> Add(int een) => twee => een + twee;
@@ -56,9 +55,10 @@ namespace CSharp.Pipe.Test
                 .Pipe(Add(4))
                 .Pipe(Add(1));
 
-            Assert.AreEqual(3+2+4+1, res);
+            res.Should().Be(10);
         }
-        [TestMethod]
+
+        [Fact]
         public void Pipe_FunctionREsuld_To_FuncAsData()
         {
             Func<int, int> Add(int een) => twee => een + twee;
@@ -67,7 +67,7 @@ namespace CSharp.Pipe.Test
 
             var res = Add2(2).Pipe(Add2);
 
-            Assert.AreEqual((2+2) + 2, res);
+            res.Should().Be(6);
         }
     }
 }

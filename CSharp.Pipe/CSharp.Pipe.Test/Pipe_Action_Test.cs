@@ -1,12 +1,12 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
+using Xunit;
 
 namespace CSharp.Pipe.Test
 {
-    [TestClass]
     public class Pipe_Action_Test
     {
-        [TestMethod]
+        [Fact]
         public void Pipe_Number_To_Func()
         {
             var res = 0;
@@ -14,10 +14,10 @@ namespace CSharp.Pipe.Test
 
             2.Pipe(Add(2));
 
-            Assert.AreEqual(4,res);
+            res.Should().Be(4);
         }
 
-        [TestMethod]
+        [Fact]
         public void Pipe_Number_To_FuncAsData()
         {
             var res = 0;
@@ -26,10 +26,10 @@ namespace CSharp.Pipe.Test
             var add2 = Add(2);
             2.Pipe(add2);
 
-            Assert.AreEqual(4, res);
+            res.Should().Be(4);
         }
 
-        [TestMethod]
+        [Fact]
         public void Pipe_FunctionREsuld_To_FuncAsData()
         {
             var res = 0;
@@ -41,7 +41,7 @@ namespace CSharp.Pipe.Test
 
             a(2 , 2).Pipe(add2);
 
-            Assert.AreEqual(6, res);
+            res.Should().Be(6);
         }
     }
 }
